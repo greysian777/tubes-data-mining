@@ -3,13 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-
-dataset = pd.read_csv('breast-cancer-wisconsin.data')
-dataset.replace('?', -99999, inplace=True)
-
-
-X = dataset.iloc[:, 1:11].values # 11 karena ada class
-y = dataset.iloc[:, 10].values # class
+#importing dataset
+dataset = pd.read_csv('data.csv', header=0)
+dataset.drop("id",1)
+mapping={'M':4, 'B':2}
+print(dataset.shape)
+dataset['diagnosis'] = dataset['diagnosis'].map(mapping)
+X = dataset.iloc[:, 1:31].values # parameter yang mau di train
+y = dataset.iloc[:, 1].values # target
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -23,7 +24,7 @@ X_test = sc.transform(X_test)
 
 # Applying Kernel PCA
 from sklearn.decomposition import KernelPCA
-kpca = KernelPCA(n_components = 2, kernel = 'rbf')
+kpca = KernelPCA(n_components = 2, kernel = 'cosine')
 X_train = kpca.fit_transform(X_train)
 X_test = kpca.transform(X_test)
 

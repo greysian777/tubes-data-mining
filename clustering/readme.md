@@ -1,14 +1,17 @@
 # Clustering 
 - K means
-  - ![](https://i.imgur.com/Y0vTG7P.png)
+  - ![](https://i.imgur.com/SaGD161.png)
 - SpectralClustering
-  - ![](https://i.imgur.com/NdB0wf4.png)
+  - ![](https://i.imgur.com/ukC0CAX.png)
 - hierarchical clustering
-  - ![](https://i.imgur.com/WujemHt.png)
+  - ![](https://i.imgur.com/MldsgLr.png)
   - Dendogram
-    - ![](https://i.imgur.com/3foTprX.png)
+    - ![](https://i.imgur.com/iWjpPz5.png)
 
 
+##t-SNE 
+https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
+ ini buat membantu plot untuk visualisasi
 
 ## Penjelasan
 There are two types of hierarchical clustering: Agglomerative and Divisive. In the former, data points are clustered using a bottom-up approach starting with individual data points, while in the latter top-down approach is followed where all the data points are treated as one big cluster and the clustering process involves dividing the one big cluster into several small clusters.
@@ -34,5 +37,7 @@ There are different ways to find distance between the clusters. The distance its
 ## Referensi 
 https://www.kaggle.com/vishwaparekh/cluster-analysis-of-breast-cancer-dataset
 
+
+
 ## Dataset 
-- (Breast Cancer)[https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29]
+- (Breast Cancer)wdbc.data
