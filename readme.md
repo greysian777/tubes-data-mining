@@ -35,6 +35,12 @@ https://www.kaggle.com/rcfreitas/python-ml-breast-cancer-diagnostic-data-set
 
 https://github.com/Jean-njoroge/Breast-cancer-risk-prediction
 
+
+# EDA (Exploratory data analysis)
+![](https://i.imgur.com/d3tqhr5.png)    
+dari sini karena yang paling berkorelasi terhadap column size jadi yang diambil unif_cell_size dan unif_shape
+(data lama)
+
 #### Multi Layer Perceptron 
 Jadi biar lebih seru, urutan dari `x_train` dan `x_Test` di shuffle pake `sklearn.utils.shuffle`. Lalu dibandingkan dengan data asli
 - 19 Epoch, 4 Layer (memakai adam optimiser, backprop)
