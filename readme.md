@@ -1,4 +1,8 @@
 # Tugas Besar Data Mining 
+
+![](https://i.imgur.com/qXvwcUx.jpg)
+-------    
+
 ## Dipelajari
 - Classification 
 - Clustering 
