@@ -24,7 +24,7 @@ X_test = sc.transform(X_test)
 
 # Applying Kernel PCA
 from sklearn.decomposition import KernelPCA
-kpca = KernelPCA(n_components = 2, kernel = 'cosine')
+kpca = KernelPCA(n_components = 2, kernel = 'rbf')
 X_train = kpca.fit_transform(X_train)
 X_test = kpca.transform(X_test)
 
