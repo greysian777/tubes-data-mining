@@ -4,9 +4,9 @@
 -------    
 
 ## Dipelajari
-- Classification 
-- Clustering 
-- Sequence Pattern 
+- Classification (Breast Cancer) 
+- Clustering (Breast Cancer / Song Mood Identifier)
+- Sequence Pattern (Movie Recommender)
 ## Latar Terbelakang
 ![keren nih anjir](https://github.com/rasbt/pattern_classification/raw/master/Images/logo.png)
 
