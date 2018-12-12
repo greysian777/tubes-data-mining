@@ -71,3 +71,5 @@ Epoch:  17   Accuracy:  0.98684   Cost:  26.54008   Valid Accuracy:  1.00000   V
 Epoch:  18   Accuracy:  0.98684   Cost:  25.67315   Valid Accuracy:  1.00000   Valid Cost:  1.10405   
 Epoch:  19   Accuracy:  0.98684   Cost:  23.48993   Valid Accuracy:  1.00000   Valid Cost:  1.06180   
 Run Complete Finished.
+
+![](https://i.imgur.com/GNjJXfQ.jpg)
