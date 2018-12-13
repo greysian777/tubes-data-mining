@@ -30,7 +30,7 @@ https://github.com/eriklindernoren/ML-From-Scratch
     - [ ] Prefix Span 
     - [ ] Generalized Sequence Pattern 
 - [ ] Laporan ipnyb
-- [ ] Exploratory Data Analysis
+- [x] Exploratory Data Analysis
 - [ ] Performance Analysis per algoritma
 
 # Reference 
@@ -44,6 +44,8 @@ https://github.com/Jean-njoroge/Breast-cancer-risk-prediction
 ![](https://i.imgur.com/1C599nu.png)    
 dari sini karena yang paling berkorelasi terhadap column size jadi yang diambil unif_cell_size dan unif_shape
 (data lama)
+![](https://i.imgur.com/LUVein3.jpg)
+pek en fak :* 
 
 #### Multi Layer Perceptron 
 Jadi biar lebih seru, urutan dari `x_train` dan `x_Test` di shuffle pake `sklearn.utils.shuffle`. Lalu dibandingkan dengan data asli
