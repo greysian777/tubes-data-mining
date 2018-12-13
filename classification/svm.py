@@ -6,10 +6,13 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 
 # Importing the dataset
-dataset = pd.read_csv('breast-cancer-wisconsin.data', index_col=0)
-dataset.replace('?', '1', inplace=True) #-9999 biar outlier, gak masuk ke grafik 
-X = dataset.iloc[:, 1:10].values # 11 karena ada class
-y = dataset.iloc[:, 9].values # 10 karena tidak ada kelas 
+dataset = pd.read_csv('data.csv', index_col=0)
+print(dataset.head())
+X = dataset.iloc[:, 1:31].values # 11 karena ada class
+y = dataset.iloc[:, 0].values # 10 karena tidak ada kelas 
+mapping={'M':4, 'B':2}
+print(dataset.shape)
+dataset['diagnosis'] = dataset['diagnosis'].map(mapping)
 
 print("\n \t The data frame has {0[0]} rows and {0[1]} columns. \n".format(dataset.shape))
 dataset.info()
@@ -18,16 +21,18 @@ print(dataset.head(3))
 
 
 #visualizing data 
-features_mean = list(dataset.columns[0:10])
+features_mean = list(dataset.columns[0:20])
 print(features_mean)
-plt.figure(figsize=(10,10))
+# plt.figure(figsize=(32,32))
 sns.heatmap(dataset[features_mean].corr(), annot=True, square=True, cmap='coolwarm')
 plt.show()
 
 
+
+
 print(dataset.columns)
 
-sns.pairplot(dataset, hue='class', vars = ['clump_thickness', 'unif_cell_size','unif_cell_shape', 'marg_adhesion'])
+sns.pairplot(dataset, hue='diagnosis', vars = ["radius_mean","texture_mean","perimeter_mean","area_mean","smoothness_mean","compactness_mean","concavity_mean","concave points_mean","symmetry_mean","fractal_dimension_mean","radius_se","texture_se","perimeter_se","area_se","smoothness_se","compactness_se","concavity_se","concave points_se","symmetry_se","fractal_dimension_se","radius_worst","texture_worst","perimeter_worst","area_worst","smoothness_worst","compactness_worst","concavity_worst","concave points_worst","symmetry_worst","fractal_dimension_worst"])
 plt.show()
 
 #Print benign and malign cancer 

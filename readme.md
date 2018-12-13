@@ -41,7 +41,7 @@ https://github.com/Jean-njoroge/Breast-cancer-risk-prediction
 
 
 # EDA (Exploratory data analysis)
-![](https://i.imgur.com/d3tqhr5.png)    
+![](https://i.imgur.com/1C599nu.png)    
 dari sini karena yang paling berkorelasi terhadap column size jadi yang diambil unif_cell_size dan unif_shape
 (data lama)
 
