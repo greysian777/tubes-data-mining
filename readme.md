@@ -31,7 +31,7 @@ https://github.com/eriklindernoren/ML-From-Scratch
     - [ ] Generalized Sequence Pattern 
 - [ ] Laporan ipnyb
 - [x] Exploratory Data Analysis
-- [ ] Performance Analysis per algoritma
+- [x] Performance Analysis per algoritma
 
 # Reference 
 https://www.kaggle.com/rcfreitas/python-ml-breast-cancer-diagnostic-data-set
