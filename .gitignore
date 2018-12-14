@@ -125,9 +125,10 @@ dmypy.json
 .venv/
 
 ### csv ### 
-creditcard.csv
-
+*.csv
 ##vscode 
 .vscode
 contract.png
 .vscode/settings.json
+
+#dataset

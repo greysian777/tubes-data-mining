@@ -6,13 +6,13 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 
 # Importing the dataset
-dataset = pd.read_csv('data.csv', index_col=0)
-print(dataset.head())
-X = dataset.iloc[:, 1:31].values # 11 karena ada class
-y = dataset.iloc[:, 0].values # 10 karena tidak ada kelas 
+dataset = pd.read_csv('data.csv', header=0)
+dataset.drop("id",1)
 mapping={'M':4, 'B':2}
 print(dataset.shape)
 dataset['diagnosis'] = dataset['diagnosis'].map(mapping)
+X = dataset.iloc[:, 1:31].values # parameter yang mau di train
+y = dataset.iloc[:, 1].values # target
 
 print("\n \t The data frame has {0[0]} rows and {0[1]} columns. \n".format(dataset.shape))
 dataset.info()
@@ -37,18 +37,11 @@ plt.show()
 
 #Print benign and malign cancer 
 
-sns.countplot(dataset['class'], label = "Hitung")
+sns.countplot(dataset['diagnosis'], label = "Hitung")
 plt.show()
-
-# # Feature Scaling
-# from sklearn.preprocessing import StandardScaler
-# sc = StandardScaler()
-# X_train = sc.fit_transform(X_train)
-# X_test = sc.transform(X_test)
-
-X = dataset.drop(['class'], axis = 1) # We drop our "target" feature and use all the remaining features in our dataframe to train the model.
+X = dataset.drop(['diagnosis'], axis = 1) # We drop our "target" feature and use all the remaining features in our dataframe to train the model.
 print(X.head())
-y = dataset['class']
+y = dataset['diagnosis']
 print('\n')
 print(y.head())
 
@@ -66,10 +59,23 @@ print ('The size of our training "y" (output feature) is', y_train.shape)
 print ('\n')
 print ('The size of our testing "y" (output features) is', y_test.shape)
 
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+
+# Applying Kernel PCA
+from sklearn.decomposition import KernelPCA
+kpca = KernelPCA(n_components = 2, kernel = 'rbf')
+X_train = kpca.fit_transform(X_train)
+X_test = kpca.transform(X_test)
+
+
 from sklearn.svm import SVC
 svc_model = SVC()
 
-print(svc_model.fit(X_train, y_train))
+svc_model.fit(X_train, y_train)
 y_predict = svc_model.predict(X_test)
 score = svc_model.score(X_test, y_test)
 print("Test Accuracy: ", score)
@@ -87,22 +93,3 @@ plt.show()
 
 print(classification_report(y_test, y_predict))
 
-# visualisasi dengan grid 
-# creating a meshgrid
-x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
-y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-h=0.05
-xx, yy = np.meshgrid(np.arange(x_min, x_max, h),np.arange(y_min, y_max, h))
-xy_mesh=np.c_[xx.ravel(), yy.ravel()]
-Z = svc_model.predict(xy_mesh)
-Z = Z.reshape(xx.shape)
-
-#plotting data on decision boundary
-plt.figure()
-plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold)
-plt.xlim(xx.min(), xx.max())
-plt.ylim(yy.min(), yy.max())
-plt.xlabel('PC1');plt.ylabel('PC2')
-plt.title('SVC')
-plt.show()
